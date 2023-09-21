@@ -1,0 +1,17 @@
+app:
+  datasource:
+      jdbc-url: jdbc:postgresql://localhost:5432/booklist
+      username: postgres
+      password: password
+      pool-size: 100
+spring:
+  flyway:
+    locations: classpath:db.migration
+    validateMigrationNaming: false
+    enabled: false
+    baseline-on-migrate: true
+
+jpa:
+  hibernate:
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

@@ -1,0 +1,67 @@
+.book-container {
+    display: grid;
+    grid-template-areas:
+    "image info"
+    "image price";
+    grid-template-columns: 120px auto;
+    grid-template-rows: 180px auto;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-info {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.detailInfo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+
+
+.book-info h2 {
+    margin-top: 1rem;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+h2:hover{
+    color: #007777;
+}
+
+.book-info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.book-img {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    grid-area: image;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.book-price {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    grid-area: price;
+    font-size: 20px;
+    color: #f44336; /* 红色 */
+    position: relative;
+    bottom: 0;
+    right: 0;
+    padding: 3px;
+    background-color: #f0f8e1;
+    border-radius: 5px;
+}

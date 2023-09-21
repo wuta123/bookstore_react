@@ -1,0 +1,100 @@
+.Cart {
+    min-height: 100vh; /* 设置最小高度为视口高度 */
+    position: relative; /* 相对定位 */
+}
+
+.cart-search-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.book-details h3 {
+    margin-bottom: 5px;
+}
+
+.book-details p {
+    margin-bottom: 2px;
+}
+
+button:hover {
+    color: #ffffff;
+    background-color: #007777;
+}
+
+.bookList2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 5px auto;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.book {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 45px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.book img {
+    width: 150px;
+    height: 200px;
+    margin-left: 20px;
+    object-fit: cover;
+}
+.book button {
+    width: 100px;
+    background-color: #f44336;
+    float: right;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.book button:hover {
+    background-color: #ff7f7f;
+}
+
+.book button:active {
+    background-color: #d32f2f;
+    transform: scale(0.95);
+}
+
+.purchaseAllBtn:active{
+    background-color: #d32f2f;
+    transform: scale(0.95);
+}
+
+.book button:focus {
+    outline: none;
+}
+
+.hintHolder{
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 父容器的50%位置 */
+    left: 50%; /* 父容器的50%位置 */
+    transform: translate(-50%, -50%); /* 通过transform平移来居中 */
+}

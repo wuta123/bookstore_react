@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', 'Times New Roman', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+
+
+nav {
+  float: left; /*左侧导航条*/
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 4rem;
+  height: 45rem ;
+  background-color: #077;
+  justify-content: space-between;
+  padding: 25px;
+  top: 0;
+}
+
+.main{
+  margin-left: 8rem;
+}
+
+.nav-content {
+  float: left;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+nav h1 {
+  font-size: 2rem;
+  margin: -5px 0 0 0;
+  color: #fff;
+}
+
+.links {
+  padding: 0 0 0 50px;
+}
+
+.links a {
+  float: right;
+  text-decoration: none;
+  padding: 25px;
+  font-size: 1.1rem;
+  color: #9e9e9e;
+}
+a:hover {
+  color: #f0f8e1;
+}
+a:focus {
+  color: #535353;
+}
+
+nav .icon {
+  float: bottom;
+  align-self: center;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+.icon:hover {
+  color: #f0f8e1;
+}
+
+hr {
+  margin: 40px 60px;
+  width: auto;
+}

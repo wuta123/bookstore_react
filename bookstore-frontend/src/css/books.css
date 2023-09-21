@@ -1,0 +1,37 @@
+.books {
+    min-height: 100vh; /* 设置最小高度为视口高度 */
+    position: relative; /* 相对定位 */
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.book {
+    width: 45%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f8e1;
+    border-radius: 5px;
+}
+
+.books-container:hover {
+    background-color: #DCDCDC
+}
+
+.search-bar {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hintHolder2 {
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 父容器的50%位置 */
+    left: 50%; /* 父容器的50%位置 */
+    transform: translate(-50%, -50%); /* 通过transform平移来居中 */
+}

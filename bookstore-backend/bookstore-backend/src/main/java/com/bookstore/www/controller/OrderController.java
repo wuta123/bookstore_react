@@ -4,19 +4,22 @@ import com.bookstore.www.entity.Order;
 import com.bookstore.www.msg.Msg;
 import com.bookstore.www.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("orders")
 public class OrderController {
     private final OrderService orderService;
-
+    private final KafkaTemplate kafkaTemplate;
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, KafkaTemplate kafkaTemplate) {
         this.orderService = orderService;
+        this.kafkaTemplate = kafkaTemplate;
     }
     @GetMapping
     public Msg getAllOrders(@RequestParam("admin_id") String admin_id)
@@ -34,8 +37,12 @@ public class OrderController {
         return orderService.getOrderById(user_id);
     }
     @PostMapping
-    public Msg addNewItemToOrder(@RequestBody Order order){
-        return orderService.purchaseNewItem(order);
+    public Msg addNewItemToOrder(@RequestBody Map<String, String> params){
+        String OrderId = UUID.randomUUID().toString();
+        kafkaTemplate.send("buyQueue", OrderId, params.toString());
+        System.out.println("接收到用户下单，单号为："+OrderId+"，将对应下单信息发送给前端");
+
+        return new Msg("success", OrderId);
     }
 
     public boolean checkAdmin(String id){

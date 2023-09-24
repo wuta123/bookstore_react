@@ -13,4 +13,9 @@ public class Msg {
         this.msg = msg;
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

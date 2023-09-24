@@ -3,13 +3,18 @@ package com.bookstore.www.controller;
 import com.bookstore.www.entity.User;
 import com.bookstore.www.entity.Userinfo;
 import com.bookstore.www.msg.Msg;
+import com.bookstore.www.service.ClockService;
 import com.bookstore.www.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,7 +23,9 @@ import java.util.UUID;
 public class UserController {
 
     /*用户界面和应用的接口，负责请求转发、参数解析、处理用户请求，调用服务层的方法*/
-    private final UserService userService;
+    private UserService userService;
+
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -31,22 +38,7 @@ public class UserController {
     @GetMapping("/getbyid")
     public Msg getUserById(@RequestParam("user_id") String user_id){ return userService.getUserById(user_id);};
 
-    @RequestMapping("/login")
-    public Msg login(@RequestParam("username") String username, @RequestParam("password") String password){
-        System.out.println(username);
-        System.out.println(password);
-        if (userService.checkUserCredential(username, password)) {
-            Userinfo userinfo = userService.getUserInfo(username);
-            if(userinfo.getStatus() == 0){
-                return new Msg("ban", null);
-            }
-            Msg result = new Msg("success", userinfo);
-            return result;
-        } else {
-            Msg result = new Msg("failed", null);
-            return result;
-        }
-    }
+
 
     @RequestMapping("/register")
     public Msg register(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("email") String email, @RequestParam("image") String image){

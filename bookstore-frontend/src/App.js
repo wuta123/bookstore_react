@@ -25,13 +25,33 @@ function App() {
         setUserInfo(userInfo);
         setDefaultElement(isLoggedIn ? <Books/> : <Login logged={handleLogin}/>);
         if (isLoggedIn) await checkAdmin(userInfo.user_id, setAdmin).then();
+        if (isLoggedIn){
+            showMessage("成功登录！登录时间为："+ Date(), 3000);
+        }
     };
 
-    const handleLogout = () => {
+    const handleLogout = (msg) => {
         setIsLoggedIn(false);
         setUserInfo({});
         setDefaultElement(<Login logged={handleLogin}/>);
         setAdmin(false);
+        showMessage(msg, 3000);
+    }
+
+    function showMessage(message, duration) {
+        let messageBox = document.getElementById("messageBox");
+        let messageText = document.getElementById("messageText");
+
+        // 设置消息文本
+        messageText.innerText = message;
+
+        // 显示消息框
+        messageBox.style.display = "block";
+
+        // 设置定时器，在指定时间后关闭消息框
+        setTimeout(function() {
+            messageBox.style.display = "none";
+        }, duration);
     }
 
     const [defaultElement, setDefaultElement] = useState(<Login logged={handleLogin}/>);
@@ -39,6 +59,9 @@ function App() {
         <BrowserRouter>
             {isLoggedIn && <Navbar userIcon={userInfo.image}/>}
             <div className="main">
+                <div id="messageBox" className="message-box">
+                    <span id="messageText" className="message-text"></span>
+                </div>
                 <Routes>
                     <Route path="/" element={defaultElement} />
                     <Route path="/register" element={<Register/>}/>

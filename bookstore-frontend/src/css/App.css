@@ -76,3 +76,21 @@ hr {
   margin: 40px 60px;
   width: auto;
 }
+
+.message-box {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  z-index: 9999; /* 设置一个较高的 z-index 值以确保置顶显示 */
+}
+
+.message-text {
+  font-size: 16px;
+  font-weight: bold;
+}

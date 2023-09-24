@@ -5,10 +5,11 @@ import {Button, Input} from 'antd';
 import "../../css/profile.css"
 import {checkAdmin} from "../../client";
 import { useNavigate } from 'react-router'
+import fetch from "unfetch";
 
 const { TextArea } = Input;
 
-const Profile = ({userInfo, setLog}) => {
+const Profile = ({userInfo, setLog, }) => {
     const [name, setName] = useState(userInfo.username);
     const [managable, setManagable] = useState(false);
     const navigate= useNavigate();
@@ -65,7 +66,20 @@ const Profile = ({userInfo, setLog}) => {
     }
 
     const handleExit = () => {
-        setLog();
+        fetch(`/users/logout?username=${userInfo.username}`, {
+            method: 'POST',
+            credentials: 'credential',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data.msg);
+                if(data.msg === 'successful'){
+                    setLog(data.data);
+                }
+            })
         navigate(`/`)
     }
 

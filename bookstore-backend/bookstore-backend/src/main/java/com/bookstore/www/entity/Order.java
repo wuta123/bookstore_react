@@ -18,26 +18,32 @@ public class Order {
     @Id
     @Setter @Getter
     @Column(name = "order_id")
+    @JsonProperty("order_id")
     private UUID order_id;
 
     @Setter @Getter
     @Column(name = "user_id")
+    @JsonProperty("user_id")
     private UUID user_id;
 
     @Setter @Getter
     @Column(name = "book_id")
+    @JsonProperty("book_id")
     private UUID book_id;
 
     @Setter @Getter
     @Column(name = "quantity")
+    @JsonProperty("quantity")
     private int quantity;
 
     @Setter @Getter
     @Column(name = "total_price")
+    @JsonProperty("total_price")
     private double total_price;
 
     @Setter @Getter
     @Column(name = "purchase_time")
+    @JsonProperty("purchase_time")
     private Timestamp purchase_time;
 
     @ManyToOne

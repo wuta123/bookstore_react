@@ -7,12 +7,12 @@ import fetch from "unfetch";
 import {Footer} from "antd/es/layout/layout";
 import PurchaseAListOfBooks from "../../utils/purchaseAListOfBooks";
 import axios from "axios";
-import {deleteCart, deleteOrder, purchaseItem} from "../../client";
+import {deleteCart, deleteOrder, purchaseAllCartItem, purchaseItem} from "../../client";
 import Book from "../../components/Book";
 const { Search } = Input;
 
 
-const Cart = ({userId}) => {
+const Cart = ({userId, showMessage}) => {
     const [searchValue, setSearchValue] = useState("");
     const [cartList, setCartList] = useState({});
     const findBook = async(book_id) => {
@@ -42,38 +42,31 @@ const Cart = ({userId}) => {
     }
 
     async function handlePurchase(user_id, book_id, quantity, total_price, cart_id) {
-        await purchaseItem({ user_id, book_id, quantity, total_price }).then(async res => {
-            const data = await res.json();
-            if(data.msg==="success"){
-                alert("购买成功")
-                handleDelete(cart_id);
+        let purchaseList = [
+            {
+                book_id : book_id,
+                user_id : user_id,
+                cart_id : cart_id
             }
-            else{
-                alert("您购买的部分商品已无库存!")
-            }
-        });
+        ]
+        await purchaseAllCartItem(purchaseList)
+        showMessage("购买成功", 3000)
+        refreshCart();
     }
 
-    async function handleMultiPurchase(user_id, book_id, quantity, total_price, cart_id) {
-        await purchaseItem({ user_id, book_id, quantity, total_price }).then(async res => {
-            const data = await res.json();
-            if(data.msg === 'success'){
-                handleDelete(cart_id);
-            }else{
-                alert("您购买的部分商品已无库存!");
-            }
-        });
-    }
 
     async function handlePurchaseAll() {
-        for (const book of cartList.bookList) {
-            const book_id = book.book_id;
-            const quantity = book.quantity;
-            const total_price = book.quantity * book.price;
-            await handleMultiPurchase(userId, book_id, quantity, total_price, book.cart_id);
-        }
-        alert("已经清空购物车！");
+        console.log(cartList.bookList);
+        let purchaseList = cartList.bookList.map(book => {
+            return {
+                book_id : book.book_id,
+                user_id: cartList.user_id,
+                cart_id: book.cart_id
+            }
+        })
 
+        showMessage("已经清空购物车！", 3000);
+        await purchaseAllCartItem(purchaseList);
         refreshCart();
         // 重新获取购物车列表并更新状态
     }

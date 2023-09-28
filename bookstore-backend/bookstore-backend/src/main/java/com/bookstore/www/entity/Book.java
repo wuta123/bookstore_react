@@ -44,9 +44,8 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private List<Cart> carts;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Order> orders;
-
+    @OneToMany(mappedBy = "book1", cascade = CascadeType.ALL)
+    private List<Orderitem> orderItemList;
 
     public Book(UUID book_id, String title, String price, String description, String author, String type, String image, int remain, int sold) {
         this.book_id = book_id;

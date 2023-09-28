@@ -3,13 +3,16 @@ package com.bookstore.www.controller;
 import com.bookstore.www.entity.Order;
 import com.bookstore.www.msg.Msg;
 import com.bookstore.www.service.OrderService;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("orders")
@@ -33,9 +36,26 @@ public class OrderController {
     }
 
     @GetMapping("/me")
-    public Msg getMyOrders(@RequestParam("user_id") String user_id){
-        return orderService.getOrderById(user_id);
+    public JsonNode getMyOrders(@RequestParam("user_id") String user_id){
+        JsonNode result = orderService.getOrderById(user_id);
+        return result;
     }
+
+    @GetMapping("/detail")
+    public JsonNode getOrderDetailsByOrderId(@RequestParam("order_id") String order_id){
+        JsonNode result = orderService.getOrderByOrderId(order_id);
+        return result;
+    }
+
+    @PostMapping("/list")
+    public Msg purchaseAListOfItems(@RequestBody JsonNode cartArray){
+        String OrderId = UUID.randomUUID().toString();
+        kafkaTemplate.send("cartBuyQueue", OrderId, cartArray);
+        System.out.println("接受到一组下单请求");
+        System.out.println(cartArray);
+        return new Msg("success", OrderId);
+    }
+
     @PostMapping
     public Msg addNewItemToOrder(@RequestBody Map<String, String> params){
         String OrderId = UUID.randomUUID().toString();

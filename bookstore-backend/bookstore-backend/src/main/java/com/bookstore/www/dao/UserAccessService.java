@@ -130,4 +130,18 @@ public class UserAccessService {
         }
     }
 
+    public User getUserDetailsById(UUID user_id){
+        Optional<User> user = userRepository.findById(user_id);
+        if(user.isPresent()){
+            return user.get();
+        }
+        else{
+            return null;
+        }
+    }
+
+    public Msg updateUser(User user){
+        userRepository.save(user);
+        return new Msg("success", null);
+    }
 }

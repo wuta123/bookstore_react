@@ -9,7 +9,7 @@ import {deleteOrder} from "../../client";
 const { Search } = Input;
 
 
-const Orders = ({userId}) => {
+const Orders = ({userId, showMessage}) => {
     const [searchValue, setSearchValue] = useState("");
 
     const [orderList, setOrderList] = useState({});
@@ -28,57 +28,72 @@ const Orders = ({userId}) => {
                 method: 'GET'
             });
             const data = await result.json();//data保存了所有的购物车列表
-            const bookList = await Promise.all(
-                data.data.map(async (item) => {
-                    const book = await findBook(item.book_id);
-                    return {...book, quantity: item.quantity, order_id: item.order_id}; // 将book信息加入quantity信息一起返回
+            data.orders = await Promise.all(
+                data.orders.map(async (item) => {
+                    item.orderitems = await Promise.all(
+                            item.orderitems.map(async (oneItem) => {
+                                const book = await findBook(oneItem.book_id);
+                                return {...book, quantity: oneItem.quantity, order_id: oneItem.order_id, total_price: oneItem.total_price};
+                            })
+                    )
+                    return item;
                 })
             );
+            console.log(data.orders);
             await (
                 setOrderList(
-                    {user_id: userId, bookList}
+                    {user_id: userId, orders: data.orders}
                 )
             );
         };
         fetchData();
     }, []);
 
-    const handleDelete = (order_id) => {
-        deleteOrder(order_id)
-            .then(() => {
-                // 重新获取订单列表并更新状态
-                fetch(`/orders/me?user_id=${userId}`,{
-                    method: 'GET'
-                })
-                    .then(res => res.json())
-                    .then(async data => {
-                        const bookList = await Promise.all(
-                            data.data.map(async (item) => {
-                                const book = await findBook(item.book_id);
-                                return {...book, quantity: item.quantity, order_id: item.order_id};
+    function refreshOrder() {
+            // 重新获取订单列表并更新状态
+        fetch(`/orders/me?user_id=${userId}`,{
+            method: 'GET'
+        }).then(res => res.json()).then(
+            async data => {
+                data.orders = await Promise.all(
+                    data.orders.map(async (item) => {
+                        item.orderitems = await Promise.all(
+                            item.orderitems.map(async (oneItem) => {
+                                const book = await findBook(oneItem.book_id);
+                                return {...book, quantity: oneItem.quantity, order_id: oneItem.order_id, total_price: oneItem.total_price};
                             })
-                        );
-                        setOrderList({user_id: userId, bookList});
+                        )
+                        return item;
                     })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            })
-            .catch(error => {
-                console.error(error);
-                // 报错
-            });
+                );
+                console.log(data.orders);
+                setOrderList(
+                    {user_id: userId, orders: data.orders}
+                )
+            }
+        )
+    }
+
+    const handleDelete = async (order_id) => {
+        await deleteOrder(order_id)
+        showMessage("成功删除", 3000)
+        refreshOrder();
     }
 
 
-    const filteredList = orderList.bookList ? (orderList.bookList.filter(book =>
-        book.title && book.title.includes(searchValue))) : [];
+    const filteredList = orderList.orders ? (
+        orderList.orders.filter(order =>
+        {
+            let filteredItemList = order.orderitems.filter(book => book.title && book.title.includes(searchValue));
+            return filteredItemList.length > 0;
+        }).reverse()
+    ) : [];
 
 
 
     return (
         <div className="Order">
-            {orderList.bookList ? ( // 判断是否加载完成
+            {orderList.orders ? ( // 判断是否加载完成
                 <div>
                     <div className="order-search-bar">
                         <Search
@@ -87,10 +102,12 @@ const Orders = ({userId}) => {
                             style={{ width: '300px', marginRight: '10px' }}
                         />
                     </div>
-                    {orderList.bookList.length > 0 ? (
+                    {orderList.orders.length > 0 ? (
                     <div className="bookList2">
-                        {filteredList.map((book) => (
+                        {filteredList.map((order) => (
                             <div className="Order-container">
+                                <Space>订单编号{order.order_id}</Space>
+                                {order.orderitems.map((book) => (
                                 <div className="book">
                                     <img
                                         src={book.image}
@@ -100,13 +117,16 @@ const Orders = ({userId}) => {
                                         <h3>{book.title}</h3>
                                         <p>作者： {book.author}</p>
                                         <p>数量： {book.quantity}</p>
-                                        <p>价格： ¥{book.quantity * book.price}</p>
+                                        <p>价格： ¥{book.total_price}</p>
                                         {/*计算总价*/}
                                     </div>
-                                    <button onClick={() => handleDelete(String(book.order_id))}>
+                                    <button onClick={() => handleDelete(String(order.order_id))}>
                                         移除
                                     </button>
                                 </div>
+                                ))
+                                }
+                                <Space>下单时间{order.purchase_time}</Space>
                             </div>
                         ))}
                     </div>

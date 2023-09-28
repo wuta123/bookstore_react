@@ -8,13 +8,23 @@ export const addNewItemToCart = async item => await fetch('/carts', {
     body: JSON.stringify(item)
 });
 
-export const  purchaseItem = async item => await fetch('/orders', {
+export const purchaseItem = async item => await fetch('/orders', {
     headers: {
         'Content-Type': 'application/json'
     },
     method: 'POST',
     body: JSON.stringify(item)
 });
+
+export const purchaseAllCartItem = async (carts) => {
+    await fetch('/orders/list', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(carts)
+    })
+}
 
 export const deleteOrder = async (order_id) => await fetch(`/orders/${order_id}`, {
     headers: {

@@ -133,4 +133,17 @@ public class BookAccessService {
         }
     }
 
+    public Book getBookDetailById(UUID book_id){
+        Optional<Book> book = bookRepository.findById(book_id);
+        if(book.isPresent())
+            return book.get();
+        else
+            return null;
+    }
+
+    public Msg updateBook(Book book){
+        bookRepository.save(book);
+        return new Msg("success", null);
+    }
+
 }

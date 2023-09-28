@@ -8,10 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class CartAccessService {
@@ -104,6 +101,13 @@ public class CartAccessService {
         String sql = "DELETE FROM Cart WHERE cart_id = ?";
         int update = jdbcTemplate.update(sql, cart_id);
         System.out.println("Delete Result: " + update);
+    }
+
+    public Cart getCartDetailsByCartId(UUID cart_id){
+        Optional<Cart> cart = cartRepository.findById(cart_id);
+        if(cart.isPresent())
+            return cart.get();
+        else return null;
     }
 }
 

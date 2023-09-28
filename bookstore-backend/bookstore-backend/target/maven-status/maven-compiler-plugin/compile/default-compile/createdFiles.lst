@@ -16,10 +16,12 @@ com\bookstore\www\controller\LoginController.class
 com\bookstore\www\service\ClockService.class
 com\bookstore\www\service\BookServiceImp.class
 com\bookstore\www\service\UserServiceImp.class
+com\bookstore\www\entity\Orderitem.class
 com\bookstore\www\controller\OrderController.class
 com\bookstore\www\repository\UserinfoRepository.class
 com\bookstore\www\msg\Msg.class
 com\bookstore\www\datasource\datasource.class
+com\bookstore\www\repository\OrderitemRepository.class
 com\bookstore\www\controller\BookController$BookRequestDTO.class
 com\bookstore\www\dao\CartAccessService.class
 com\bookstore\www\repository\BookRepository.class

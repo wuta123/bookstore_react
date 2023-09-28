@@ -67,9 +67,9 @@ function App() {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/personal_analytics/:user_id" element={<ConsumePersonal user_id={userInfo.id}/>}/>
                     {(isLoggedIn && <Route path="/books" element={<Books userId={userInfo.id}/>} />) || <Route path="/books" element={<Login logged={handleLogin}/>} />}
-                    {(isLoggedIn && <Route path="/cart" element={<Cart userId={userInfo.id}/>} />) || <Route path="/cart" element={<Login logged={handleLogin}/>} />}
+                    {(isLoggedIn && <Route path="/cart" element={<Cart userId={userInfo.id} showMessage={showMessage}/>} />) || <Route path="/cart" element={<Login logged={handleLogin}/>} />}
                     {(isLoggedIn && <Route path="/profile" element={<Profile userInfo={userInfo} setLog={handleLogout}/>} />) || <Route path="/profile" element={<Login logged={handleLogin}/>} />}
-                    {(isLoggedIn && <Route path="/orders" element={<Orders userId={userInfo.id}/>} />) || <Route path="/orders" element={<Login logged={handleLogin}/>} />}
+                    {(isLoggedIn && <Route path="/orders" element={<Orders userId={userInfo.id} showMessage={showMessage}/>} />) || <Route path="/orders" element={<Login logged={handleLogin}/>} />}
                     {(isLoggedIn && <Route path="/book-detail/:id" element={<BookDetail userId={userInfo.id}/>} />) || <Route path="/book-detail/:id" element={<Login logged={handleLogin}/>}/>}
                     {(isLoggedIn && admin && <Route path="/book_manage/:userid" element={<BookManage userId={userInfo.id}/>}/>) || <Route path="/book_manage/:userid" element={<Login logged={handleLogin}/>}/>}
                     {(isLoggedIn && admin && <Route path="/user_manage/:user_id" element={<UserManage user_id={userInfo.id}/>}/>)|| <Route path="/user_manage/:userid" element={<Login logged={handleLogin}/>}/>}

@@ -27,45 +27,23 @@ public class Order {
     private UUID user_id;
 
     @Setter @Getter
-    @Column(name = "book_id")
-    @JsonProperty("book_id")
-    private UUID book_id;
-
-    @Setter @Getter
-    @Column(name = "quantity")
-    @JsonProperty("quantity")
-    private int quantity;
-
-    @Setter @Getter
-    @Column(name = "total_price")
-    @JsonProperty("total_price")
-    private double total_price;
-
-    @Setter @Getter
     @Column(name = "purchase_time")
     @JsonProperty("purchase_time")
     private Timestamp purchase_time;
 
     @ManyToOne
-    @JoinColumn(name="book_id", insertable = false, updatable = false)
-    private Book book;
-
-    @ManyToOne
     @JoinColumn(name="user_id", insertable = false, updatable = false)
     private User user1;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<Orderitem> orderitemList;
 
 
     public Order(@JsonProperty("order_id") UUID order_id,
                  @JsonProperty("user_id") UUID user_id,
-                 @JsonProperty("book_id") UUID book_id,
-                 @JsonProperty("quantity") int quantity,
-                 @JsonProperty("total_price") double total_price,
                  @JsonProperty("purchase_time") Timestamp purchase_time) {
         this.order_id = order_id;
         this.user_id = user_id;
-        this.book_id = book_id;
-        this.quantity = quantity;
-        this.total_price = total_price;
         this.purchase_time = purchase_time;
     }
 

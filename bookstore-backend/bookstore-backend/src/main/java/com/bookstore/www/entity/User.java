@@ -44,6 +44,7 @@ public class User {
     @OneToMany(mappedBy = "user1", cascade = CascadeType.ALL)
     private List<Order> orders;
 
+
     @OneToOne
     @JoinColumn(name="id")
     private Userinfo userinfo;

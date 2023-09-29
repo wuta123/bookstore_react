@@ -17,7 +17,7 @@ export const purchaseItem = async item => await fetch('/orders', {
 });
 
 export const purchaseAllCartItem = async (carts) => {
-    await fetch('/orders/list', {
+    return await fetch('/orders/list', {
         headers: {
             'Content-Type': 'application/json'
         },

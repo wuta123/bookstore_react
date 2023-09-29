@@ -27,7 +27,7 @@ public class CartServiceImp implements CartService{
     }
 
     @Override
-    public void deleteCart(UUID cart_id) {
+    public void deleteCart(UUID cart_id) throws Exception {
         cartAccessService.deleteCart(cart_id);
     }
 }

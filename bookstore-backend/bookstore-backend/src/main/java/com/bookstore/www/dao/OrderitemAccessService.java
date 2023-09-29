@@ -19,8 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +46,10 @@ public class OrderitemAccessService {
     private ObjectMapper objectMapper;
     private OrderitemRepository orderitemRepository;
 
-    public Msg purchaseOneItem(Orderitem item) {
+
+    @Transactional(propagation = Propagation.MANDATORY, rollbackFor=Exception.class)
+    public Msg purchaseOneItem(Orderitem item) throws Exception{
+        //int k = 1/0;
         String sql2 = "INSERT INTO orderitems (orderbelong, book_id, quantity, total_price) VALUES (?, ?, ?, ?)";
         int update2 = jdbcTemplate.update(
                 sql2,
@@ -63,7 +68,7 @@ public class OrderitemAccessService {
         return new Msg("failed", null);
     }
 
-    public Msg purchaseItemList(Orderitem[] itemList){
+    public Msg purchaseItemList(Orderitem[] itemList) throws Exception {
         boolean success = true;
         for(Orderitem item : itemList){
             Msg result = purchaseOneItem(item);

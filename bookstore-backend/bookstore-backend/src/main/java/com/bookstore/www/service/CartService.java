@@ -9,6 +9,6 @@ import java.util.UUID;
 public interface CartService {
     public List<Cart> getAllCarts();
     public void addNewItem(Cart cart);
-    public void deleteCart(UUID cart_id);
+    public void deleteCart(UUID cart_id) throws Exception;
 }
 

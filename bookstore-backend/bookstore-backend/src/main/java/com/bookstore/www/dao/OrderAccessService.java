@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
@@ -57,7 +58,11 @@ public class OrderAccessService {
         return orderRepository.findAll();
     }
 
-    public Msg purchaseItem(Order newOrder) {
+
+
+    @Transactional(propagation = Propagation.MANDATORY, rollbackFor=Exception.class)
+    public Msg purchaseItem(Order newOrder) throws Exception{
+        //int k = 0;
         System.out.println("New Order: " + newOrder);
         Optional<Order> order = orderRepository.findById(newOrder.getOrder_id());
         if(!order.isPresent()){
@@ -76,7 +81,6 @@ public class OrderAccessService {
 
         return new Msg("success", null);
     }
-
 
     public void deleteOrder(UUID order_id) {
         System.out.println("To be deleted order:" + order_id);

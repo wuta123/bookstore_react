@@ -9,6 +9,8 @@ import PurchaseAListOfBooks from "../../utils/purchaseAListOfBooks";
 import axios from "axios";
 import {deleteCart, deleteOrder, purchaseAllCartItem, purchaseItem} from "../../client";
 import Book from "../../components/Book";
+import {closeWebSocket, createWebSocket} from "../../utils/websocketServer";
+import orders from "../orders/orders";
 const { Search } = Input;
 
 
@@ -20,6 +22,35 @@ const Cart = ({userId, showMessage}) => {
         const data = await result.json();
         const book = data.find((book) => book.book_id === book_id);
         return book;
+    }
+
+    let order_id = null;
+
+    function showMessage2(message, duration) {
+        let messageBox = document.getElementById("messageBox2");
+        let messageText = document.getElementById("messageText2");
+
+        // 设置消息文本
+        messageText.innerText = message;
+
+        // 显示消息框
+        messageBox.style.display = "block";
+
+        // 设置定时器，在指定时间后关闭消息框
+        setTimeout(function() {
+            messageBox.style.display = "none";
+        }, duration);
+    }
+
+    function handleEvent(event){
+        console.log(event.data.toString().substring(1, event.data.toString().length-1));
+        console.log(order_id);
+        if(event.data.toString().substring(1, event.data.toString().length-1) === order_id
+            || event.data.toString() === order_id
+        )
+            showMessage2("本次订单已经成功结束", 3000);
+        closeWebSocket();
+        refreshCart();
     }
 
     function refreshCart(){
@@ -49,9 +80,12 @@ const Cart = ({userId, showMessage}) => {
                 cart_id : cart_id
             }
         ]
-        await purchaseAllCartItem(purchaseList)
+        purchaseAllCartItem(purchaseList).then(async res => {
+            const data = await res.json();
+            order_id = data.data.toString();
+        })
+        createWebSocket("ws://localhost:8080/websocket/transfer/"+userId, handleEvent)
         showMessage("购买成功", 3000)
-        refreshCart();
     }
 
 
@@ -64,10 +98,12 @@ const Cart = ({userId, showMessage}) => {
                 cart_id: book.cart_id
             }
         })
-
+        purchaseAllCartItem(purchaseList).then(async res => {
+            const data = await res.json();
+            order_id = data.data.toString();
+        });
+        createWebSocket("ws://localhost:8080/websocket/transfer/"+userId, handleEvent)
         showMessage("已经清空购物车！", 3000);
-        await purchaseAllCartItem(purchaseList);
-        refreshCart();
         // 重新获取购物车列表并更新状态
     }
 
@@ -107,6 +143,9 @@ const Cart = ({userId, showMessage}) => {
 
     return (
         <div className="Cart">
+            <div id="messageBox2" className="message-box2">
+                <span id="messageText2" className="message-text"></span>
+            </div>
             {cartList.bookList ? ( // 判断是否加载完成
                 <div>
                     <div className="cart-search-bar">

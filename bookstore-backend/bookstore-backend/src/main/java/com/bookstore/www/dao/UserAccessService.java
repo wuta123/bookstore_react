@@ -7,6 +7,8 @@ import com.bookstore.www.repository.UserRepository;
 import com.bookstore.www.repository.UserinfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
@@ -130,7 +132,8 @@ public class UserAccessService {
         }
     }
 
-    public User getUserDetailsById(UUID user_id){
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public User getUserDetailsById(UUID user_id) throws Exception{
         Optional<User> user = userRepository.findById(user_id);
         if(user.isPresent()){
             return user.get();
@@ -140,7 +143,10 @@ public class UserAccessService {
         }
     }
 
-    public Msg updateUser(User user){
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public Msg updateUser(User user) throws Exception{
+        //int i = 0;
         userRepository.save(user);
         return new Msg("success", null);
     }

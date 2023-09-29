@@ -3,10 +3,9 @@ package com.bookstore.www.component;
 import com.bookstore.www.entity.Order;
 import com.bookstore.www.entity.Orderitem;
 import com.bookstore.www.msg.Msg;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.bookstore.www.utils.SocketServer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -18,19 +17,21 @@ import java.util.*;
 
 @Component
 public class OrderListener {
-    private OrderService orderService;
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private final OrderService orderService;
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final ObjectMapper objectMapper;
+    private SocketServer server;
 
-    private ObjectMapper objectMapper;
     @Autowired
-    public OrderListener(OrderService orderService, KafkaTemplate<String, String> kafkaTemplate, ObjectMapper objectMapper) {
+    public OrderListener(OrderService orderService, KafkaTemplate<String, String> kafkaTemplate, ObjectMapper objectMapper, SocketServer server) {
         this.orderService = orderService;
         this.kafkaTemplate = kafkaTemplate;
         this.objectMapper = objectMapper;
+        this.server = server;
     }
 
     @KafkaListener(topics = "buyQueue", groupId = "group_buy_queue")
-    public void buyQueueListener(ConsumerRecord<String, String> record){
+    public void buyQueueListener(ConsumerRecord<String, String> record) throws Exception {
         System.out.println("OrderListener：接收到新的订单："+record.key());
         String mapString = record.value().substring(2, record.value().length()-2);
         String[] keyValuePairs = mapString.split(",");
@@ -52,12 +53,15 @@ public class OrderListener {
         );
 
         System.out.println("插入过程结束");
-        if(result.getMsg().equals("success") || result.getMsg().equals("successful"))
+        if(result.getMsg().equals("success") || result.getMsg().equals("successful")) {
             System.out.println("订单：" + record.key() + "成功插入数据库");
+            kafkaTemplate.send("finishOrderQueue",  user_id.toString(), record.key());
+        }
     }
 
     @KafkaListener(topics = "cartBuyQueue", groupId = "group_cart_buy_queue")
     public void cartBuyListener(ConsumerRecord<String, String> record){
+        UUID user_id;
         try {
             JsonNode cartArray = objectMapper.readTree(record.value());
             System.out.println("OrderListener：接收到新的订单："+record.key());
@@ -82,11 +86,22 @@ public class OrderListener {
             if(itemList.isEmpty())
                 return;
             else{
-                UUID user_id = UUID.fromString(itemList.get(0).get("user_id"));
+                user_id = UUID.fromString(itemList.get(0).get("user_id"));
                 orderService.purchaseItemList(order_id, user_id, itemList);
+
             }
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        kafkaTemplate.send("finishOrderQueue",  user_id.toString(), record.key());
+    }
+
+    @KafkaListener(topics = "finishOrderQueue", groupId = "group_finish_order_queue")
+    public void orderFinishListener(ConsumerRecord<String, String> record) throws InterruptedException {
+        String user_id = record.key();
+        String order_id = record.value();
+        System.out.println("订单" + order_id + "处理完成！尝试向用户"+user_id+"发送websocket请求");
+        server.sendMessageToUser(user_id, order_id);
+        //通过websocket发送处理完成的消息给前端
     }
 }

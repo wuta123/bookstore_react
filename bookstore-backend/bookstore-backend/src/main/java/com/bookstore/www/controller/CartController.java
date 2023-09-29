@@ -26,7 +26,7 @@ public class CartController {
         cartService.addNewItem(cart);
     }
     @DeleteMapping("/{cart_id}")
-    public void deleteCart(@PathVariable UUID cart_id){
+    public void deleteCart(@PathVariable UUID cart_id) throws Exception {
         cartService.deleteCart(cart_id);
     }
 }

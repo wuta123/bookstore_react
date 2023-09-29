@@ -33,18 +33,20 @@ public class LoginController {
         System.out.println(password);
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(1000*60*60);
-        if(session.getAttribute(username) != null && session.getAttribute(username).equals(session.getId())){
-            Msg result = new Msg("failed", "你已经登录过了！");
-            return result;
-        }
         if (userService.checkUserCredential(username, password)) {
             Userinfo userinfo = userService.getUserInfo(username);
             if(userinfo.getStatus() == 0){
                 return new Msg("ban", null);
             }
             Msg result = new Msg("success", userinfo);
-            session.setAttribute(username, session.getId());
+            if(session.getAttribute(userinfo.getId().toString()) != null
+               && session.getAttribute(userinfo.getId().toString()).equals(session.getId())){
+                return new Msg("failed", "你已经登录过了！");
+            }
+
+            session.setAttribute(userinfo.getId().toString(), session.getId());
             clockService.startClockCounting();
+
             return result;
         } else {
             Msg result = new Msg("failed", null);

@@ -15,9 +15,9 @@ import java.util.UUID;
 public interface OrderService {
     public List<Order> getAllOrders();
 
-    public Msg purchaseNewItem(Order order, Orderitem item);
+    public Msg purchaseNewItem(Order order, Orderitem item) throws Exception;
 
-    Msg purchaseItemList(UUID order_id, UUID user_id, List<Map<String, String>> itemList);
+    Msg purchaseItemList(UUID order_id, UUID user_id, List<Map<String, String>> itemList) throws Exception;
 
     public void deleteOrder(UUID order_id);
 

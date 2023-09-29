@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -133,7 +135,8 @@ public class BookAccessService {
         }
     }
 
-    public Book getBookDetailById(UUID book_id){
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public Book getBookDetailById(UUID book_id) throws Exception{
         Optional<Book> book = bookRepository.findById(book_id);
         if(book.isPresent())
             return book.get();
@@ -141,7 +144,8 @@ public class BookAccessService {
             return null;
     }
 
-    public Msg updateBook(Book book){
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public Msg updateBook(Book book) throws Exception{
         bookRepository.save(book);
         return new Msg("success", null);
     }

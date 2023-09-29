@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -96,14 +98,18 @@ public class CartAccessService {
         }
 
     }
-    public void deleteCart(UUID cart_id) {
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public void deleteCart(UUID cart_id) throws Exception{
         System.out.println(cart_id);
         String sql = "DELETE FROM Cart WHERE cart_id = ?";
         int update = jdbcTemplate.update(sql, cart_id);
         System.out.println("Delete Result: " + update);
     }
 
-    public Cart getCartDetailsByCartId(UUID cart_id){
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
+    public Cart getCartDetailsByCartId(UUID cart_id) throws Exception{
         Optional<Cart> cart = cartRepository.findById(cart_id);
         if(cart.isPresent())
             return cart.get();

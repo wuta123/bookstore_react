@@ -61,7 +61,6 @@ public class OrderController {
         String OrderId = UUID.randomUUID().toString();
         kafkaTemplate.send("buyQueue", OrderId, params.toString());
         System.out.println("接收到用户下单，单号为："+OrderId+"，将对应下单信息发送给前端");
-
         return new Msg("success", OrderId);
     }
 

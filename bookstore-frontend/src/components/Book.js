@@ -11,14 +11,6 @@ function Book(props) {
         const navigateState = {
             state:{
                 id: book_id,
-                title,
-                price,
-                author,
-                description,
-                type,
-                image,
-                remain,
-                sold
             }
         }
         navigate(`/book-detail/${book_id}`, navigateState);

@@ -1,11 +1,14 @@
 package com.bookstore.www.dao;
 
+import com.alibaba.fastjson.JSON;
 import com.bookstore.www.entity.Book;
 import com.bookstore.www.msg.Msg;
 import com.bookstore.www.repository.BookRepository;
 import com.bookstore.www.repository.UserRepository;
 import com.bookstore.www.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.RedisConnectionFailureException;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -22,17 +25,24 @@ import java.util.UUID;
 @Transactional
 public class BookAccessService {
     @Autowired
-    public BookAccessService(JdbcTemplate jdbcTemplate, UserRepository userRepository, BookRepository bookRepository, EntityManager entityManager) {
+    public BookAccessService(JdbcTemplate jdbcTemplate,
+                             UserRepository userRepository,
+                             BookRepository bookRepository,
+                             EntityManager entityManager,
+                             RedisTemplate redisTemplate
+    ) {
         this.jdbcTemplate = jdbcTemplate;
         this.userRepository = userRepository;
         this.bookRepository = bookRepository;
         this.entityManager = entityManager;
+        this.redisTemplate = redisTemplate;
     }
-    @Autowired
     public UserRepository userRepository;
     public BookRepository bookRepository;
     public EntityManager entityManager;
     public final JdbcTemplate jdbcTemplate;
+    public final RedisTemplate redisTemplate;
+
     public List<Book> selectAllBooks(){
         return bookRepository.findAll();
     }
@@ -49,22 +59,6 @@ public class BookAccessService {
             e.printStackTrace();
         }
         return false;
-    }
-
-    public static RowMapper<Book> getBookRowMapper() {
-        return (resultSet, i) -> {
-            String idStr = resultSet.getString("book_id");
-            UUID book_id = UUID.fromString(idStr);
-            String title = resultSet.getString("title");
-            String price = resultSet.getString("price");
-            String description = resultSet.getString("description");
-            String author = resultSet.getString("author");
-            String type = resultSet.getString("type");
-            String image = resultSet.getString("image");
-            int remain = resultSet.getInt("remain");
-            int sold = resultSet.getInt("sold");
-            return new Book(book_id, title, price, description, author, type, image, remain, sold);
-        };
     }
 
     public void insertNewBook(Book newbook) {
@@ -103,6 +97,13 @@ public class BookAccessService {
                 book.setImage(newbook.getImage());
                 book.setRemain(newbook.getRemain());
                 bookRepository.save(book);
+                try {
+                    redisTemplate.opsForValue().set("book" + book.getBook_id().toString(), JSON.toJSONString(book));
+                    redisTemplate.opsForValue().set("bookDetail" + book.getBook_id().toString(), JSON.toJSONString(book));
+                    System.out.println("进行书籍信息的修改，更新书籍：" + book.getTitle() + "在redis库缓存当中的信息");
+                } catch (RedisConnectionFailureException e) {
+                    System.err.println("无法链接到redis服务器，因此本次修改没有被缓存.");
+                }
                 return new Msg("success", null);
             } else {
                 return new Msg("failed", null);
@@ -120,32 +121,89 @@ public class BookAccessService {
         String sql = "DELETE FROM book WHERE book_id = ?";
         int update = jdbcTemplate.update(sql, book_id);
         System.out.println("Delete Result: " + update);
+
+        try {
+            redisTemplate.delete("book"+bid);
+            redisTemplate.delete("bookDetail"+bid);
+            System.out.println("在redis缓存中删除书籍："+ bid);
+        } catch (RedisConnectionFailureException e) {
+            System.err.println("无法链接到redis服务器，因此本次删除没有被缓存.");
+        }
         return 1;
     }
 
     public Msg getBookById(String bookId) {
         System.out.println("Get book by id: "+bookId);
         UUID book_id = UUID.fromString(bookId);
-        Optional<Book> bookOptional = bookRepository.findById(book_id);
-        if (bookOptional.isPresent()) {
-            Book book = bookOptional.get();
-            return new Msg("success", book);
+        String bookString;
+        //TODO: TRY AND CATCH
+        try {
+            bookString = (String) redisTemplate.opsForValue().get("book" + bookId);
+        }catch(RedisConnectionFailureException e){
+            bookString = null;
+            System.out.println("无法链接到redis服务器，因此本次获取书籍没有使用缓存");
+        }
+
+        if(bookString == null) {
+            Optional<Book> bookOptional = bookRepository.findById(book_id);
+            if (bookOptional.isPresent()) {
+                Book book = bookOptional.get();
+                try {
+                    redisTemplate.opsForValue().set("book" + bookId, JSON.toJSONString(book));
+                }catch(RedisConnectionFailureException e){
+                    System.out.println("无法链接到redis服务器，本次储存失败");
+                }
+                return new Msg("success", book);
+            } else {
+                return new Msg("Failed to find book", null);
+            }
         }else{
-            return new Msg("Failed to find book", null);
+            Book book = JSON.parseObject(bookString, Book.class);
+            System.out.println("从redis库当中读取了书籍："+book.getTitle());
+            return new Msg("success", book);
         }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
     public Book getBookDetailById(UUID book_id) throws Exception{
-        Optional<Book> book = bookRepository.findById(book_id);
-        if(book.isPresent())
-            return book.get();
-        else
-            return null;
+        String bookString;
+        //TODO: TRY AND CATCH
+        try {
+            bookString = (String) redisTemplate.opsForValue().get("bookDetail"+book_id.toString());
+        }catch(RedisConnectionFailureException e){
+            bookString = null;
+            System.out.println("无法链接到redis服务器，因此本次获取书籍没有使用缓存");
+        }
+        if(bookString == null) {
+            Optional<Book> bookOptional = bookRepository.findById(book_id);
+            if (bookOptional.isPresent()) {
+                Book book = bookOptional.get();
+                try {
+                    redisTemplate.opsForValue().set("bookDetail" + book_id.toString(), JSON.toJSONString(book));
+                }catch (RedisConnectionFailureException e){
+                    System.out.println("无法链接到redis服务器");
+                }
+                return book;
+            }
+            else
+                return null;
+        }else{
+            Book book = JSON.parseObject(bookString, Book.class);
+            System.out.println("从redis库当中读取了书籍："+book.getTitle());
+            return book;
+        }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor=Exception.class)
     public Msg updateBook(Book book) throws Exception{
+        //TODO: TRY AND CATCH
+        try {
+            redisTemplate.opsForValue().set("book" + book.getBook_id().toString(), JSON.toJSONString(book));
+            redisTemplate.opsForValue().set("bookDetail" + book.getBook_id().toString(), JSON.toJSONString(book));
+            System.out.println("进行书籍信息的修改，更新书籍：" + book.getTitle() + "在redis库缓存当中的信息");
+        }catch(RedisConnectionFailureException e){
+            System.out.println("无法链接到Redis服务器，本次更新不可被记录");
+        }
         bookRepository.save(book);
         return new Msg("success", null);
     }

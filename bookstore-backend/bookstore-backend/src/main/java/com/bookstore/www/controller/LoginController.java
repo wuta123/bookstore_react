@@ -41,7 +41,8 @@ public class LoginController {
             Msg result = new Msg("success", userinfo);
             if(session.getAttribute(userinfo.getId().toString()) != null
                && session.getAttribute(userinfo.getId().toString()).equals(session.getId())){
-                return new Msg("failed", "你已经登录过了！");
+                //return new Msg("failed", "你已经登录过了！");
+                return new Msg("success", userinfo);
             }
 
             session.setAttribute(userinfo.getId().toString(), session.getId());

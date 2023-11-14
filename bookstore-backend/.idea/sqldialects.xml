@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/bookstore-backend/src/main/resources/db.migration/V3__create_user_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/bookstore-backend/src/main/resources/db.migration/V4__create_orders_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/bookstore-backend/src/main/resources/db.migration/V5__create_userinfo_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/bookstore-backend/src/main/resources/db.migration/V7_create_book_table_revised.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

@@ -11,7 +11,7 @@ export function createWebSocket(url, callBackFunction){
     websocket.onerror = () => {
         //如果链接失败，尝试重新链接
         setTimeout(function() {
-            createWebSocket(url);
+            createWebSocket(url, callBackFunction);
         }, 5000);
     }
 }

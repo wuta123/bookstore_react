@@ -35,6 +35,7 @@ public class LoginController {
         session.setMaxInactiveInterval(1000*60*60);
         if (userService.checkUserCredential(username, password)) {
             Userinfo userinfo = userService.getUserInfo(username);
+            clockService.startClockCounting();
             if(userinfo.getStatus() == 0){
                 return new Msg("ban", null);
             }
@@ -42,12 +43,9 @@ public class LoginController {
             if(session.getAttribute(userinfo.getId().toString()) != null
                && session.getAttribute(userinfo.getId().toString()).equals(session.getId())){
                 //return new Msg("failed", "你已经登录过了！");
-                return new Msg("success", userinfo);
+                return new Msg("success", userinfo); //关闭了Session方便测试
             }
-
             session.setAttribute(userinfo.getId().toString(), session.getId());
-            clockService.startClockCounting();
-
             return result;
         } else {
             Msg result = new Msg("failed", null);
@@ -60,6 +58,7 @@ public class LoginController {
     public Msg logout(@RequestParam("username") String username, HttpServletRequest request){
         HttpSession session = request.getSession();
         String timeInterval = clockService.endClockCounting();
+        clockService.resetTime();
         session.removeAttribute(username);
         return new Msg("successful", timeInterval);
     }

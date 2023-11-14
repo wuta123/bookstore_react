@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bookstore-backend/bookstore-backend.iml" filepath="$PROJECT_DIR$/bookstore-backend/bookstore-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/../bookstore-frontend/bookstore-frontend.iml" filepath="$PROJECT_DIR$/../bookstore-frontend/bookstore-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mircroservice/mircroservice.iml" filepath="$PROJECT_DIR$/../mircroservice/mircroservice.iml" />
     </modules>
   </component>
 </project>

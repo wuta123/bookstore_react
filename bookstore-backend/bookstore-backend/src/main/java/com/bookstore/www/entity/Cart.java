@@ -2,7 +2,7 @@ package com.bookstore.www.entity;
 
 import com.bookstore.www.entity.Book;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;

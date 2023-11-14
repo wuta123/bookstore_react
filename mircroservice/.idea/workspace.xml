@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b1b9f94-e68e-4666-998b-881d98338a39" name="Changes" comment="change">
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_lz4_lz4_java_1_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_websocket_2_6_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_web_5_3_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_yaml_snakeyaml_1_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/surefire-reports/TEST-com.bookstore.www.book.bookstoreApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/surefire-reports/com.bookstore.www.book.bookstoreApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/test-classes/com/bookstore/www/book/bookstoreApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/abafeceb-74b5-43f7-8bfe-71d813f9463d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/abafeceb-74b5-43f7-8bfe-71d813f9463d/storage_v2/_src_/database/booklist.B0-Hdw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/abafeceb-74b5-43f7-8bfe-71d813f9463d/storage_v2/_src_/database/booklist.B0-Hdw/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/abafeceb-74b5-43f7-8bfe-71d813f9463d/storage_v2/_src_/database/booklist.B0-Hdw/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/abafeceb-74b5-43f7-8bfe-71d813f9463d/storage_v2/_src_/database/booklist.B0-Hdw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mircroservice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/book.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_toml_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_toml_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_github_luben_zstd_jni_1_5_0_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_github_luben_zstd_jni_1_5_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_6_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_lettuce_lettuce_core_6_1_10_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_lettuce_lettuce_core_6_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_buffer_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_buffer_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_codec_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_codec_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_common_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_common_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_handler_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_handler_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_resolver_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_resolver_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_transport_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_transport_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_90_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_79_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_28.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_21.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_11_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_minidev_json_smart_2_4_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__net_minidev_json_smart_2_4_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_kafka_kafka_clients_3_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_kafka_kafka_clients_3_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_73.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_65.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_73.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_65.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_73.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_65.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_assertj_assertj_core_3_22_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_assertj_assertj_core_3_21_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_15_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_10_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_lz4_lz4_java_1_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_mockito_mockito_core_4_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_mockito_mockito_core_4_0_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_0_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_ow2_asm_asm_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_projectlombok_lombok_1_18_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_projectlombok_lombok_1_18_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_websocket_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_6_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_7_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_aop_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_aop_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_beans_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_beans_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_context_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_context_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_core_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_expression_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_expression_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_test_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_orm_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_orm_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_test_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_core_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_tx_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_tx_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_web_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_websocket_5_3_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_springframework_spring_websocket_5_3_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_8_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_8_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/.idea/libraries/Maven__org_yaml_snakeyaml_1_30.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/bookstore-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/bookstore-backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-backend/bookstore-backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bookstore-frontend/src/view/books/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bookstore-frontend/src/view/books/books.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2RuorcnOSJ4oHcKCUWgJZ0wCMeC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/knowledge-is-power/back&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\IntelliJ IDEA 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\knowledge_is_power\knowledge-is-power\back" />
+      <recent name="E:\knowledge_is_power\knowledge-is-power\back\services" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="back" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="back" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="back" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="back" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b1b9f94-e68e-4666-998b-881d98338a39" name="Changes" comment="" />
+      <created>1688109527033</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688109527033</updated>
+      <workItem from="1688109528106" duration="109000" />
+      <workItem from="1688109665645" duration="113000" />
+      <workItem from="1688109792677" duration="2348000" />
+      <workItem from="1688346858469" duration="13929000" />
+      <workItem from="1688369717399" duration="10000" />
+      <workItem from="1688376384901" duration="343000" />
+      <workItem from="1688433113006" duration="20704000" />
+      <workItem from="1688641137065" duration="4000" />
+      <workItem from="1688890893035" duration="1524000" />
+      <workItem from="1688892771149" duration="10367000" />
+      <workItem from="1688967758551" duration="13325000" />
+      <workItem from="1689043543105" duration="8066000" />
+      <workItem from="1689090769693" duration="15439000" />
+      <workItem from="1689140193296" duration="4424000" />
+      <workItem from="1693833524950" duration="4267000" />
+      <workItem from="1693991643449" duration="20000" />
+      <workItem from="1694073179799" duration="2185000" />
+      <workItem from="1694101716313" duration="186000" />
+      <workItem from="1694102410245" duration="3347000" />
+      <workItem from="1694188962310" duration="3641000" />
+      <workItem from="1694247524890" duration="60000" />
+      <workItem from="1694259681135" duration="2860000" />
+      <workItem from="1694269763182" duration="1553000" />
+      <workItem from="1694293719523" duration="52000" />
+      <workItem from="1694293932446" duration="3874000" />
+      <workItem from="1694307398939" duration="1592000" />
+      <workItem from="1694317465264" duration="749000" />
+      <workItem from="1694318721272" duration="3047000" />
+      <workItem from="1697632424104" duration="6580000" />
+      <workItem from="1697696802375" duration="4192000" />
+    </task>
+    <task id="LOCAL-00001" summary="可以获取热门的问题、标签、用户">
+      <created>1689141025933</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689141025933</updated>
+    </task>
+    <task id="LOCAL-00002" summary="change">
+      <created>1689143271713</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689143271713</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="可以获取热门的问题、标签、用户" />
+    <MESSAGE value="change" />
+    <option name="LAST_COMMIT_MESSAGE" value="change" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

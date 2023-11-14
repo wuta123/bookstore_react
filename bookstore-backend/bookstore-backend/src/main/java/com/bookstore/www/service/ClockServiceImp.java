@@ -50,4 +50,10 @@ public class ClockServiceImp implements ClockService{
         else return "最早一次登录时间为：" + startTimeString + ", 本次会话持续时间为："
             + hour + "时" + minute + "分" + second + "秒。";
     }
+
+    @Override
+    public void resetTime() {
+        settled = false;
+        startTimeString = "";
+    }
 }

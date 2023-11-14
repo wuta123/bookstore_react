@@ -41,9 +41,6 @@ public class Book {
     @Column(name="sold")
     private int sold;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Cart> carts;
-
     @OneToMany(mappedBy = "book1", cascade = CascadeType.ALL)
     private List<Orderitem> orderItemList;
 

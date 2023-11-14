@@ -27,18 +27,13 @@ public class OrderAccessService {
                               UserRepository userRepository,
                               OrderRepository orderRepository,
                               ObjectMapper objectMapper,
-                              BookRepository bookRepository,
-                              OrderitemRepository orderitemRepository,
-                              OrderitemAccessService orderitemAccessService, CartRepository cartRepository
+                              OrderitemRepository orderitemRepository
                               ) {
         this.jdbcTemplate = jdbcTemplate;
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
         this.objectMapper = objectMapper;
-        this.bookRepository = bookRepository;
         this.orderitemRepository = orderitemRepository;
-        this.orderitemAccessService = orderitemAccessService;
-        this.cartRepository = cartRepository;
     }
 
     public final JdbcTemplate jdbcTemplate;
@@ -48,11 +43,7 @@ public class OrderAccessService {
     private ObjectMapper objectMapper;
 
     private final OrderitemRepository orderitemRepository;
-    private BookRepository bookRepository;
 
-    private OrderitemAccessService orderitemAccessService;
-
-    private CartRepository cartRepository;
 
     public List<Order> selectAllOrders() {
         return orderRepository.findAll();

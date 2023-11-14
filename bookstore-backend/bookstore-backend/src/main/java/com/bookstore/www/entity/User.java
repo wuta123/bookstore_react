@@ -39,9 +39,6 @@ public class User {
     private double cost;
 
     @OneToMany(mappedBy = "user1", cascade = CascadeType.ALL)
-    private List<Cart> carts;
-
-    @OneToMany(mappedBy = "user1", cascade = CascadeType.ALL)
     private List<Order> orders;
 
 

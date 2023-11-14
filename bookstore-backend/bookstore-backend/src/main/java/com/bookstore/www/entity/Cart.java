@@ -1,41 +1,64 @@
 package com.bookstore.www.entity;
-
-import com.bookstore.www.entity.Book;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.UUID;
-import lombok.Getter;
-import lombok.Setter;
-
+import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
-@Entity
-@Table(name = "cart")
+@Document(collection = "cart")
 public class Cart {
+
     @Id
-    @Setter @Getter
-    @Column(name = "cart_id")
     private UUID cart_id;
-    @Setter @Getter
-    @Column(name = "user_id")
+
     private UUID user_id;
-    @Setter @Getter
-    @Column(name = "book_id")
+
+    public UUID getCart_id() {
+        return cart_id;
+    }
+
+    public void setCart_id(UUID cart_id) {
+        this.cart_id = cart_id;
+    }
+
+    public UUID getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(UUID user_id) {
+        this.user_id = user_id;
+    }
+
+    public UUID getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(UUID book_id) {
+        this.book_id = book_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
+    }
+
     private UUID book_id;
-    @Setter @Getter
-    @Column(name = "quantity")
+
     private int quantity;
-    @Setter @Getter
-    @Column(name = "total_price")
+
     private double total_price;
 
-    @ManyToOne
-    @JoinColumn(name="book_id", insertable = false, updatable = false)
-    private Book book;
-
-    @ManyToOne
-    @JoinColumn(name="user_id", insertable = false, updatable = false)
-    private User user1;
 
     public Cart(@JsonProperty("cart_id") UUID cart_id,
                 @JsonProperty("user_id") UUID user_id,

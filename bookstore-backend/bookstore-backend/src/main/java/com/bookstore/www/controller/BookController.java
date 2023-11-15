@@ -1,5 +1,6 @@
 package com.bookstore.www.controller;
 
+import com.bookstore.www.entity.BookType;
 import com.bookstore.www.service.BookService;
 import com.bookstore.www.entity.Book;
 import com.bookstore.www.msg.Msg;
@@ -93,6 +94,16 @@ public class BookController {
         }else{
             return new Msg("非法用户，拒绝操作", null);
         }
+    }
+
+    @RequestMapping("/tag")
+    public List<Book> searchByTagName(@RequestParam String type){
+        return bookService.getBookByRelatedType(type);
+    }
+
+    @RequestMapping("/tag/test")
+    public void allTypes(){
+        bookService.test();
     }
 
     public boolean checkAdmin(String id){

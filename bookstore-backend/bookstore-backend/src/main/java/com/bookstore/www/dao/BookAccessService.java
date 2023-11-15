@@ -2,8 +2,10 @@ package com.bookstore.www.dao;
 
 import com.alibaba.fastjson.JSON;
 import com.bookstore.www.entity.Book;
+import com.bookstore.www.entity.BookType;
 import com.bookstore.www.msg.Msg;
 import com.bookstore.www.repository.BookRepository;
+import com.bookstore.www.repository.BookTypeRepository;
 import com.bookstore.www.repository.UserRepository;
 import com.bookstore.www.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,8 @@ import org.springframework.transaction.annotation.Propagation;
 import javax.persistence.EntityManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
+import java.util.*;
 
 @Repository
 @Transactional
@@ -29,17 +30,21 @@ public class BookAccessService {
                              UserRepository userRepository,
                              BookRepository bookRepository,
                              EntityManager entityManager,
-                             RedisTemplate redisTemplate
+                             RedisTemplate redisTemplate,
+                             BookTypeRepository bookTypeRepository
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.userRepository = userRepository;
         this.bookRepository = bookRepository;
         this.entityManager = entityManager;
         this.redisTemplate = redisTemplate;
+        this.bookTypeRepository = bookTypeRepository;
     }
     public UserRepository userRepository;
     public BookRepository bookRepository;
     public EntityManager entityManager;
+
+    public BookTypeRepository bookTypeRepository;
     public final JdbcTemplate jdbcTemplate;
     public final RedisTemplate redisTemplate;
 
@@ -206,6 +211,103 @@ public class BookAccessService {
         }
         bookRepository.save(book);
         return new Msg("success", null);
+    }
+
+    public List<Book> findBooksByTypeRelated(String type){
+        BookType bookType = bookTypeRepository.findBookTypeByNameLike(type);
+        List<Book> result = new ArrayList<>();
+        Set<UUID> ids = new HashSet<UUID>();
+        if(bookType == null){
+            return result;
+        }else{
+            if(bookType.getBook_ids() != null) {
+                for (UUID id : bookType.getBook_ids()) {
+                    ids.add(id);
+                }
+            }
+        }
+
+        List<BookType> l1 = bookTypeRepository.findRelatedBookTypes1(type);
+        List<BookType> l2 = bookTypeRepository.findRelatedBookTypes2(type);
+
+        for(BookType typename : l1){
+            if(typename.getBook_ids() != null) {
+                for (UUID id : typename.getBook_ids()) {
+                    ids.add(id);
+                }
+            }
+        }
+        for(BookType typename : l2){
+            if(typename.getBook_ids() != null) {
+                for (UUID id : typename.getBook_ids()) {
+                    ids.add(id);
+                }
+            }
+        }
+
+        for(UUID id : ids){
+            try {
+                result.add(this.getBookDetailById(id));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return result;
+    }
+
+    public void test(){
+        List<BookType> blist = new ArrayList<>();
+        blist.add(new BookType("小说")); //0
+        blist.add(new BookType("推理小说"));
+        blist.add(new BookType("悬疑小说"));
+        blist.add(new BookType("恐怖小说"));
+        blist.add(new BookType("爱情小说"));
+        blist.add(new BookType("历史小说"));
+        blist.add(new BookType("冒险小说"));
+        blist.add(new BookType("战争小说"));
+        blist.add(new BookType("幻想小说"));
+        blist.add(new BookType("工具书籍")); //9
+        blist.add(new BookType("百科全书"));
+        blist.add(new BookType("词典"));
+        blist.add(new BookType("手册"));
+        blist.add(new BookType("戏剧"));//13
+        blist.add(new BookType("喜剧"));
+        blist.add(new BookType("悲剧"));
+        blist.add(new BookType("历史剧"));
+        blist.add(new BookType("名著"));//17
+        blist.add(new BookType("文学名著"));
+        blist.add(new BookType("历史名著"));
+        blist.add(new BookType("古典名著"));
+
+        blist.get(12).addBookID(UUID.fromString("911bc923-3f32-4843-ad7a-741a382614e4"));
+        blist.get(0).addBookID(UUID.fromString("e65fd6f4-14f4-459c-9bc6-a05156378090"));
+        blist.get(8).addBookID(UUID.fromString("aa518d23-08d7-41b2-9935-62badd84ee30"));
+        blist.get(17).addBookID(UUID.fromString("b659fafa-f189-4e4a-a110-5be0a1bed710"));
+
+        for(int a = 1; a < 9; a++){
+            blist.get(0).addRelateBookType(blist.get(a));
+            blist.get(a).addRelateBookType(blist.get(0));
+        }
+
+        for(int a = 10; a < 13; a++){
+            blist.get(9).addRelateBookType(blist.get(a));
+            blist.get(a).addRelateBookType(blist.get(9));
+        }
+
+        for(int a = 14; a < 17; a++){
+            blist.get(13).addRelateBookType(blist.get(a));
+            blist.get(a).addRelateBookType(blist.get(13));
+        }
+
+        for(int a = 18; a < 21; a++){
+            blist.get(17).addRelateBookType(blist.get(a));
+            blist.get(a).addRelateBookType(blist.get(17));
+        }
+
+        for(int a = 0; a < 21; a++){
+            bookTypeRepository.save(blist.get(a));
+        }
+
     }
 
 }

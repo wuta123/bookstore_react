@@ -2,6 +2,7 @@ package com.bookstore.www.service;
 
 import com.bookstore.www.dao.BookAccessService;
 import com.bookstore.www.entity.Book;
+import com.bookstore.www.entity.BookType;
 import com.bookstore.www.msg.Msg;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ public interface BookService {
     public int deleteBook(String bookid);
 
     public Msg getBookById(String bookId);
+
+    public List<Book> getBookByRelatedType(String type);
+
+    public void test();
 
 }
 

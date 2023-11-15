@@ -22,7 +22,11 @@ spring:
     timeout: 300
   mongodb:
     uri: mongodb://localhost:27017/bookstore
-
+  neo4j:
+    uri: bolt://localhost:7687/booktype
+    authentication:
+      username: neo4j
+      password: neo4j123
 jpa:
   hibernate:
     naming:

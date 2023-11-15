@@ -2,6 +2,7 @@ package com.bookstore.www.service;
 
 import com.bookstore.www.dao.BookAccessService;
 import com.bookstore.www.entity.Book;
+import com.bookstore.www.entity.BookType;
 import com.bookstore.www.msg.Msg;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +45,16 @@ public class BookServiceImp implements BookService {
     @Override
     public Msg getBookById(String bookId) {
         return bookAccessService.getBookById(bookId);
+    }
+
+    @Override
+    public List<Book> getBookByRelatedType(String type) {
+        return bookAccessService.findBooksByTypeRelated(type);
+    }
+
+    @Override
+    public void test() {
+        bookAccessService.test();
     }
 
 }

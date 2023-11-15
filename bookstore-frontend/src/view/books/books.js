@@ -11,7 +11,10 @@ const { Search } = Input;
 const Books = function({userId}) {
     const [bookList, setBookList] = useState([]);
     const [fetched, setFetched] = useState(false);
+    const [tagFetched, setTagFetched] = useState(false);
     const [searchAuthor, setSearchAuthor] = useState(false);
+    const [taggedList, setTagList] = useState([]);
+    const [searchTag, setSearchTag] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetch('/books');
@@ -26,6 +29,10 @@ const Books = function({userId}) {
 
     const searchAuthorChange = () => {
         setSearchAuthor(!searchAuthor);
+    }
+
+    const searchTagChange = () => {
+        setSearchTag(!searchTag);
     }
 
     const filteredList = bookList.filter(book =>
@@ -57,6 +64,16 @@ const Books = function({userId}) {
         return null;
     }
 
+    const checkTag = async (val) => {
+        if(searchTag){
+            const fetchData = await fetch('/books/tag?type='+val);
+            const data = await fetchData.json();
+            console.log(data);
+            setTagList(data);
+            setTagFetched(true);
+        }
+    }
+
     return (
             <div className="books">
                 <div id="messageBox" className="message-box">
@@ -68,6 +85,13 @@ const Books = function({userId}) {
 
 
                     <div className="search-bar">
+                        <Button type={searchTag ? "default" : "primary"}
+                                onClick={searchTagChange}
+                                style = {{
+                                    backgroundColor: searchTag ? "green":"white",
+                                    color: searchTag ? "white":"green"
+                                }}
+                        >标签搜索</Button>
                         <Button type={searchAuthor ? "default" : "primary"}
                                 onClick={searchAuthorChange}
                                 style = {{
@@ -75,15 +99,36 @@ const Books = function({userId}) {
                                     color: searchAuthor ? "white":"green"
                                 }}
                         >搜索作者</Button>
-                        <Search placeholder= {searchAuthor ? "请输入书名来查找作者":"想找些什么？"}
+                        <Search placeholder= {searchTag ? "按照标签搜索" : (searchAuthor ? "请输入书名来查找作者":"想找些什么？")}
                                 onChange={(e) => setSearchValue(e.target.value)}
-                                onSearch={(e) => checkAuthor(e)}
+                                onSearch={(e) => searchTag ? checkTag(e) : checkAuthor(e)}
                                 style={{width: "300px",marginRight: "10px"}}
                         />
                     </div>
 
                     <div className="books-list">
-                        {filteredList.map(book => (
+                        {searchTag ? (taggedList.length > 0 ?(taggedList.map(book => (
+                                <div className="books-container">
+                                    <div>
+                                        <Book
+                                            book_id={book.book_id}
+                                            title={book.title}
+                                            price={book.price}
+                                            author={book.author}
+                                            description={book.description}
+                                            type={book.type}
+                                            image={book.image}
+                                            remain={book.remain}
+                                            sold={book.sold}
+                                        />
+                                    </div>
+                                </div>
+                            ))):(
+                                <div className="books-container">
+                                    <h1 className="cartEmptyHint">没有标签"{searchValue}"对应的搜索结果</h1>
+                                </div>
+                            ))
+                            : (filteredList.length > 0 ? (filteredList.map(book => (
                             <div className="books-container">
                                 <div>
                                     <Book
@@ -98,8 +143,12 @@ const Books = function({userId}) {
                                         sold={book.sold}
                                     />
                                 </div>
-                            </div>
-                        ))}
+                            </div>))):(
+                                <div className="books-container">
+                                    <h1 className="cartEmptyHint">没有"{searchValue}"对应的搜索结果</h1>
+                                </div>
+                                  )
+                        )}
                     </div>
                 </div>
                 ):(

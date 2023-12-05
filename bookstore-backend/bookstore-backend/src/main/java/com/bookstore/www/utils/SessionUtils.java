@@ -7,8 +7,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.apache.catalina.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Service
 @Scope("session")
@@ -17,8 +17,7 @@ public class SessionUtils {
 
     public static HttpSession getSession() {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attrs.getRequest();
-        return request.getSession();
+        return attrs.getRequest().getSession();
     }
 
     public static Userinfo getUserFromSession() {

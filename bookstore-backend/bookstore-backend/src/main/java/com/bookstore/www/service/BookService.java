@@ -25,5 +25,6 @@ public interface BookService {
 
     public void test();
 
+    Book getBookByTitle(String title);
 }
 

@@ -3,7 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Document(collection = "cart")
 public class Cart {

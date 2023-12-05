@@ -7,7 +7,6 @@ import {useNavigate} from "react-router";
 const { Search } = Input;
 
 
-
 const Books = function({userId}) {
     const [bookList, setBookList] = useState([]);
     const [fetched, setFetched] = useState(false);
@@ -15,6 +14,9 @@ const Books = function({userId}) {
     const [searchAuthor, setSearchAuthor] = useState(false);
     const [taggedList, setTagList] = useState([]);
     const [searchTag, setSearchTag] = useState(false);
+    const [titleList, setTitleList] = useState([]);
+    const [searchTitle, setSearchTitle] = useState(false);
+    const [titleFetched, setTitleFetched] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetch('/books');
@@ -34,10 +36,6 @@ const Books = function({userId}) {
     const searchTagChange = () => {
         setSearchTag(!searchTag);
     }
-
-    const filteredList = bookList.filter(book =>
-        book.title.includes(searchValue)
-    );
 
     function showMessage(message, duration) {
         let messageBox = document.getElementById("messageBox");
@@ -62,6 +60,47 @@ const Books = function({userId}) {
             showMessage("《"+val + "》的作者是："+data.author, 3000);
         }
         return null;
+    }
+
+    async function checkTitle(val) {
+        if(!val || val == ''){
+            setSearchTitle(false);
+            return;
+        }
+        if(searchTag || searchAuthor)
+            return null;
+        const fetchData = await fetch('/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: `
+                        query bookDetails($title: String) {
+                            bookByTitle(title: $title) {
+                                book_id,
+                                title,
+                                price,
+                                description,
+                                author,
+                                type,
+                                image,
+                                remain,
+                                sold,
+                            }
+                        }
+                    `,
+                variables: { title: val },
+            }),
+        });
+
+        const data = await fetchData.json();
+        if(data && data.data.bookByTitle){
+            setTitleList([data.data.bookByTitle]);
+        }else
+            setTitleList([]);
+        setTitleFetched(true);
+        setSearchTitle(true);
     }
 
     const checkTag = async (val) => {
@@ -101,7 +140,7 @@ const Books = function({userId}) {
                         >搜索作者</Button>
                         <Search placeholder= {searchTag ? "按照标签搜索" : (searchAuthor ? "请输入书名来查找作者":"想找些什么？")}
                                 onChange={(e) => setSearchValue(e.target.value)}
-                                onSearch={(e) => searchTag ? checkTag(e) : checkAuthor(e)}
+                                onSearch={(e) => searchTag ? checkTag(e) : (searchAuthor? checkAuthor(e) : checkTitle(e))}
                                 style={{width: "300px",marginRight: "10px"}}
                         />
                     </div>
@@ -128,7 +167,28 @@ const Books = function({userId}) {
                                     <h1 className="cartEmptyHint">没有标签"{searchValue}"对应的搜索结果</h1>
                                 </div>
                             ))
-                            : (filteredList.length > 0 ? (filteredList.map(book => (
+                            : (searchTitle ? (
+                                    titleList.length > 0 ? (titleList.map(book => (
+                                        <div className="books-container">
+                                            <div>
+                                                <Book
+                                                    book_id={book.book_id}
+                                                    title={book.title}
+                                                    price={book.price}
+                                                    author={book.author}
+                                                    description={book.description}
+                                                    type={book.type}
+                                                    image={book.image}
+                                                    remain={book.remain}
+                                                    sold={book.sold}
+                                                />
+                                            </div>
+                                        </div>))):(
+                                        <div className="books-container">
+                                            <h1 className="cartEmptyHint">没有"{searchValue}"对应的搜索结果</h1>
+                                        </div>
+                                    )
+                                ):(bookList.length > 0 ? (bookList.map(book => (
                             <div className="books-container">
                                 <div>
                                     <Book
@@ -148,7 +208,7 @@ const Books = function({userId}) {
                                     <h1 className="cartEmptyHint">没有"{searchValue}"对应的搜索结果</h1>
                                 </div>
                                   )
-                        )}
+                        ))}
                     </div>
                 </div>
                 ):(

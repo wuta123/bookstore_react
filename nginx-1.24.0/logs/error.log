@@ -1,0 +1,75 @@
+2023/12/04 17:15:15 [error] 19012#4772: *1 CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2023/12/04 17:23:10 [notice] 29004#29268: signal process started
+2023/12/04 17:23:28 [notice] 24132#19440: signal process started
+2023/12/04 17:23:28 [error] 24132#19440: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:24:43 [notice] 13080#17428: signal process started
+2023/12/04 17:24:43 [error] 13080#17428: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:26:35 [notice] 30184#30188: signal process started
+2023/12/04 17:27:17 [notice] 30372#30400: signal process started
+2023/12/04 17:27:17 [error] 30372#30400: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:27:24 [notice] 29940#29944: signal process started
+2023/12/04 17:27:24 [error] 29940#29944: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:27:29 [notice] 12616#26532: signal process started
+2023/12/04 17:27:29 [error] 12616#26532: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:29:31 [notice] 29788#14264: signal process started
+2023/12/04 17:33:19 [notice] 13696#28876: signal process started
+2023/12/04 17:36:09 [notice] 5716#4412: signal process started
+2023/12/04 17:36:47 [notice] 26232#364: signal process started
+2023/12/04 17:36:57 [emerg] 28924#28960: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/nginx.conf" failed (2: The system cannot find the file specified)
+2023/12/04 17:37:32 [notice] 18700#29476: signal process started
+2023/12/04 17:37:32 [error] 18700#29476: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:37:37 [notice] 28980#27632: signal process started
+2023/12/04 17:37:37 [error] 28980#27632: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:37:42 [notice] 29752#6476: signal process started
+2023/12/04 17:37:42 [error] 29752#6476: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:37:58 [notice] 29116#8340: signal process started
+2023/12/04 17:37:58 [error] 29116#8340: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 17:38:18 [notice] 12996#14572: signal process started
+2023/12/04 17:38:18 [error] 12996#14572: invalid PID number "" in "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid"
+2023/12/04 17:38:20 [notice] 29932#24344: signal process started
+2023/12/04 17:38:20 [error] 29932#24344: invalid PID number "" in "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid"
+2023/12/04 17:39:07 [notice] 20388#29880: signal process started
+2023/12/04 17:39:07 [error] 20388#29880: invalid PID number "" in "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid"
+2023/12/04 17:39:56 [notice] 30004#21280: signal process started
+2023/12/04 17:39:56 [error] 30004#21280: invalid PID number "" in "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid"
+2023/12/04 17:42:52 [emerg] 30532#8236: no "events" section in configuration
+2023/12/04 17:42:58 [emerg] 30616#30512: no "events" section in configuration
+2023/12/04 17:43:03 [emerg] 29632#30236: no "events" section in configuration
+2023/12/04 17:43:36 [notice] 3260#8588: signal process started
+2023/12/04 17:45:33 [notice] 6496#30428: signal process started
+2023/12/04 17:46:12 [notice] 14452#23836: signal process started
+2023/12/04 17:46:42 [notice] 15872#29648: signal process started
+2023/12/04 18:04:07 [notice] 3788#29652: signal process started
+2023/12/04 18:04:07 [error] 3788#29652: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 18:04:12 [notice] 13640#29912: signal process started
+2023/12/04 18:04:12 [error] 13640#29912: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 18:06:45 [emerg] 29688#28048: no "events" section in configuration
+2023/12/04 18:08:23 [notice] 25564#25740: signal process started
+2023/12/04 18:08:23 [error] 25564#25740: OpenEvent("Global\ngx_stop_26064") failed (2: The system cannot find the file specified)
+2023/12/04 18:10:24 [notice] 20864#29092: signal process started
+2023/12/04 18:10:27 [notice] 8796#30360: signal process started
+2023/12/04 18:10:27 [error] 8796#30360: CreateFile() "C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/12/04 18:11:38 [notice] 21596#24728: signal process started
+2023/12/04 18:12:40 [emerg] 28128#2728: unknown directive "round_robin" in C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/conf/nginx.conf:7
+2023/12/04 18:13:26 [notice] 30432#7872: signal process started
+2023/12/04 18:14:37 [emerg] 30616#27944: unknown directive "round-robin" in C:\Users\Lenovo\Desktop\bookstore_react\nginx-1.24.0/conf/nginx.conf:7
+2023/12/04 18:15:11 [notice] 23088#26532: signal process started
+2023/12/04 18:18:02 [notice] 31404#31408: signal process started
+2023/12/04 18:19:14 [notice] 12020#24284: signal process started
+2023/12/04 18:20:02 [notice] 26084#30176: signal process started
+2023/12/04 18:20:21 [notice] 5912#31104: signal process started
+2023/12/04 18:20:41 [notice] 16400#17180: signal process started
+2023/12/04 18:21:08 [notice] 31040#6060: signal process started
+2023/12/04 18:21:36 [notice] 30288#30520: signal process started
+2023/12/04 18:21:58 [notice] 30464#27944: signal process started
+2023/12/04 18:22:34 [notice] 24804#6760: signal process started
+2023/12/04 18:22:57 [notice] 18700#14120: signal process started
+2023/12/04 18:23:32 [notice] 3224#30988: signal process started
+2023/12/04 18:24:08 [notice] 21412#6936: signal process started
+2023/12/04 18:28:15 [notice] 13292#25048: signal process started
+2023/12/04 18:29:34 [notice] 12012#6696: signal process started
+2023/12/04 18:30:39 [notice] 26208#21824: signal process started
+2023/12/04 18:30:47 [notice] 25964#13852: signal process started
+2023/12/04 18:32:09 [notice] 25400#30624: signal process started
+2023/12/04 20:47:41 [error] 29900#7064: *432 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "localhost"
+2023/12/04 20:47:43 [error] 29900#7064: *432 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8001/", host: "localhost"

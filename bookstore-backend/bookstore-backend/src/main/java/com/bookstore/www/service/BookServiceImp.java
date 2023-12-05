@@ -57,4 +57,9 @@ public class BookServiceImp implements BookService {
         bookAccessService.test();
     }
 
+    @Override
+    public Book getBookByTitle(String title) {
+        return bookAccessService.getBookByTitle(title);
+    }
+
 }

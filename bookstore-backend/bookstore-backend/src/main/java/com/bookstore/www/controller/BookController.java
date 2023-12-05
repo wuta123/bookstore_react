@@ -5,12 +5,17 @@ import com.bookstore.www.service.BookService;
 import com.bookstore.www.entity.Book;
 import com.bookstore.www.msg.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("books")
+@Controller
 public class BookController {
     static public class BookRequestDTO {
         public String getId() {
@@ -54,6 +59,12 @@ public class BookController {
     public Msg getBookById(@RequestParam("book_id") String book_id){
         return bookService.getBookById(book_id);
     }
+
+    @SchemaMapping(typeName = "Query", field = "bookByTitle")
+    public Book getBookByTitle(@Argument String title){
+        return bookService.getBookByTitle(title);
+    }
+
 
     @RequestMapping("/add")
     public Msg addNewBook(@RequestBody BookRequestDTO requestDTO) {

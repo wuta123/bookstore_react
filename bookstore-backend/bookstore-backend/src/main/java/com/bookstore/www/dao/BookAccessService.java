@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -310,4 +310,11 @@ public class BookAccessService {
 
     }
 
+    public Book getBookByTitle(String title) {
+       Optional<Book> bookOptional = bookRepository.findBookByTitle(title);
+       if(bookOptional.isPresent())
+        return bookOptional.get();
+       else
+           return null;
+    }
 }

@@ -1,0 +1,35 @@
+Structure and Interpretation of Computer Programs
+Synopsis: This book is a classic computer science textbook that introduces the fundamental principles of computer science, covering important concepts such as program design, functions, data abstraction, programming languages, and compilers. It's suitable for readers interested in delving deep into program design and understanding how computers work.
+
+Introduction to Algorithms
+Synopsis: This book introduces the foundational knowledge of algorithm design and analysis, including sorting, graph algorithms, and dynamic programming. It explains the basic ideas and principles of algorithms in a clear and thorough manner, suitable for students and professionals in the field of computer science.
+
+Computer Systems: A Programmer's Perspective
+Synopsis: This book introduces the internal workings of computer systems from hardware to software, covering processors, memory, operating systems, and compilers. It's suitable for readers interested in understanding the internal operations of computer systems.
+
+Design Patterns: Elements of Reusable Object-Oriented Software
+Synopsis: This book introduces commonly used design patterns in object-oriented design, such as the factory pattern and observer pattern. It provides reusable solutions to help designers better organize and understand code.
+
+The Pragmatic Programmer
+Synopsis: This book presents practical techniques and best practices in software development, emphasizing programming skills, teamwork, and important concepts in software engineering. It's suitable for developers looking to enhance their programming skills and software development expertise.
+
+Hackers & Painters: Big Ideas from the Computer Age
+Synopsis: Written by Paul Graham, this book explores topics such as computer programming, innovation, entrepreneurship, and tech culture. It provides profound insights and inspirational perspectives on the computer age.
+
+Clean Code: A Handbook of Agile Software Craftsmanship
+Synopsis: Written by Robert C. Martin, this book emphasizes the importance of writing code that is easy to understand, maintainable, and elegant. It offers practical techniques and guidelines to help developers write high-quality code.
+
+Computer Networking: A Top-Down Approach
+Synopsis: Introduces the basic concepts of computer networking from the application layer to the physical layer, covering network protocols, routing, transmission control protocol, and more. Suitable for readers seeking an in-depth understanding of computer network principles.
+
+Python Crash Course
+Synopsis: An entry-level book for beginners in Python programming, covering basic syntax, data handling, web development, and enhancing programming skills through practical projects.
+
+Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow
+Synopsis: Introduces the basic principles and practical methods of machine learning and deep learning, implementing real projects using Python's Scikit-Learn, Keras, and TensorFlow frameworks.
+
+Computer Security: Science and Technology
+Synopsis: Explores the principles, technologies, and methods of computer security, including encryption, network security, malware analysis, and helps readers understand and tackle cybersecurity challenges.
+
+Artificial Intelligence: A Modern Approach
+Synopsis: Introduces foundational knowledge in the field of artificial intelligence, covering search algorithms, knowledge representation, machine learning, and is a classic textbook for understanding and learning the basic concepts of AI.

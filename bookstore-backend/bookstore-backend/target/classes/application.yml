@@ -1,6 +1,6 @@
 app:
   datasource:
-      jdbc-url: jdbc:postgresql://localhost:5432/booklist
+      jdbc-url: jdbc:postgresql://host.docker.internal:5432/booklist
       username: postgres
       password: password
       pool-size: 100
@@ -12,28 +12,27 @@ spring:
     enabled: false
     baseline-on-migrate: true
   kafka:
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: host.docker.internal:9092
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-  mongodb:
-    uri: mongodb://localhost:27017/bookstore
   neo4j:
-    uri: bolt://localhost:7687/booktype
+    uri: bolt://host.docker.internal:7687/booktype
     authentication:
       username: neo4j
       password: neo4j123
   data:
     redis:
       database: 0
-      host: localhost
+      host: host.docker.internal
       port: 6379
       password:
       timeout: 300
+    mongodb:
+      uri: mongodb://host.docker.internal:27017/
+      database: bookstore
   graphql:
     graphiql:
       enabled: true
-
-
 
 jpa:
   hibernate:
